@@ -1,0 +1,34 @@
+For more comprehensive course on shell scripting
+LA course - bash scripting for linux administrators
+
+shell script - linear in execution
+$ mkdir scripts
+$ cd scripts
+$ vi test.sh
+#!/bin/bash (selecting the shell in which we want the commands in the script to run)
+:wq!
+$ ls -al
+$ chmod 755 test.sh
+$ ./test.sh
+$ vi test.sh
+#!/bin/bash
+# copy VNCHOWTO to a backup file
+cp /home/user/VNCHOWTO .
+:wq!
+$ ./test.sh
+$ ll
+$ vi test.sh
+cat VNCHOWTO
+:wq!
+$ ./test.sh
+
+accessing parameter in the script
+$ vi test.sh
+touch $1
+echo "This is some data" >> $1
+clear
+cat $1
+:wq!
+$ ./test.sh harrypotter.txt
+$ ./test.sh /home/user/somefile.txt
+$ export PATH=$PATH:/home/user/scripts

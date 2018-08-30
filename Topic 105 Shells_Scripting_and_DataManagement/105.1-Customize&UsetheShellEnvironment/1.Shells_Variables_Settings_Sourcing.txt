@@ -1,0 +1,85 @@
+Shells - a shell is a utility used to interpret comds or scripts that we run on the system
+
+bash - default linux shell
+       bash is superset of /bin/sh
+
+$ ls -al /bin/sh
+$ sudo yum install csh ksh tsh zsh
+$ echo $SHELL
+
+special shell
+/bin/false shell (assigned to a user who is not intended to login to the console - usually service accounts)
+$ sudo cat /etc/passwd | grep false
+$ sudo cat /etc/shadow | grep false
+
+nologin shell ()
+/etc/nologin
+$ sudo cat /etc/passwd | grep nologin
+
+Executing Scripts
+its not mandatory to name them .sh but it is good to have it to represent it as a script
+$ ls -la /usr/bin/*.sh
+$ cp /usr/bin/mksmbpasswd.sh .
+$ chown user:user mksmbpasswd.sh
+$ vi mksmbpasswd.sh
+#!/bin/sh
+$ vi mytest.sh
+#!/bin/sh
+echo "My test script"
+$ ./mytest.sh
+running the script from another location
+$ /home/user/mytest.sh
+$ cd ~
+$ ll
+. .. .bash_history .bash_logout .bash_profile .bashrc .viminfo
+when the user is created, all the above files(scripts) inherits the functionality of system wide versions of it
+
+/etc/profile - system wide env and startup programs
+/etc/bashrc - system wide functions and aliases
+
+$ alias lsal='ls -al'
+$ lsal
+
+.bash_profile takes precedence over .profile
+
+$ cat .bash_profile
+$ cat .bashrc
+all the files in home directory execute in the below order once you login
+.bash_profile -> .bashrc -> /etc/bashrc
+.bash_profile
+.bash_login
+.profile
+
+Switch user
+$ su root
+Password:
+# source scripts will not be run/sourced
+
+$ su root -
+# now source scripts will be run/sourced
+
+special characters for the shell
+tab - for autocomplete
+~/cd /cd $HOME - to access home directory
+
+Executing two commands in a single line
+$ /bin/false && echo "This executed"
+$ /bin/false || echo "This Executed"
+$ /bin/false; echo " Whatever"
+useful for update and upgrades
+# yum update  && yum install telnet
+
+Status of execution of a cmd which is Exit code
+0 - success
+1 - failure
+# ls -la
+# echo $?
+0
+# /bin/false
+# echo $?
+1
+
+Redirects and pipes
+# ls -la | more
+# ls -la > output.txt
+# cpio -id < test.cpio

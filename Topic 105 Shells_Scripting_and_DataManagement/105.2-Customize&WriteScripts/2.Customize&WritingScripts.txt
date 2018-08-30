@@ -1,0 +1,98 @@
+$ cd scritps
+$ cat test.sh
+#!/bin/sh
+touch $1
+echo "This is some data" >> $1
+clear
+cat $1
+
+conditionals
+if then elif then else then fi
+
+$ vi conditional.sh
+#!/bin/bash
+
+if [[ "$1" == "yes" ]]; then
+  echo "We have received confirmation"
+else
+  echo "We have not received confirmation
+fi
+:wq!
+
+$ chmod 755 conditional.sh
+$ ./conditional.sh yes
+$ ./conditional.sh no
+$ ./conditional.sh
+$ vi conditional.sh
+Add the paramter check
+if [[ "$#" -lt 1 ]]; then (# - number of parameters)
+  echo "Usage: conditional.sh [string]"
+  echo "Please try again"
+  exit 4(we can control what need to be shown as exit status)
+fi
+
+$ echo $?
+4
+
+$ vi conditional.sh
+
+if [[ "$#" -lt 2 ]]; then (# - number of parameters)
+  echo "Usage: conditional.sh [string] [integer]"
+  echo "Please try again"
+  exit 4(we can control what need to be shown as exit status)
+fi
+#test to see if the integer passed second is greater than 10
+if [["$2" -ge 10]]; then
+  echo "The value is greater than 10,we got : $2"
+else
+  echo echo "The value is less than 10,we got : $2"
+fi
+
+$ ./conditional.sh yes 100
+
+Fixed loop - for loop
+$ vi fixedloop.sh
+#!/bin/bash
+#display all the sciprts in PWD and cat them out to console
+for FILE in $( ls *.sh ); do
+  echo "###############################"
+  echo $FILE
+  echo "###############################"
+  cat $FILE
+done
+:wq!
+
+$ vi looping.sh
+#!/bin/bash
+clear
+echo "Please enter first name:"
+read FIRSTNAME
+
+if [["$#" -lt 1 ]]; then
+  echo "Usage: looping.sh [integer]"
+  echo "Please try again"
+  exit 4
+fi
+
+COUNT=1
+
+#display a message while the count is le to the cmd line param
+while [[ "$COUNT" -le "$1"]]; do
+  echo "This is Loop Number $COUNT of $1"
+  if [[ "$COUNT" -eq 3 ]]; then
+    echo ""
+    echo ""
+    echo "CONGRATULATIONS !!!!!!!!"
+    echo ""
+    echo ""
+  fi
+  COUNT=$((COUNT+1))
+done
+:wq!
+
+test command inside if
+$ #!/bin/bash
+if test -d /home/user; then
+  echo "This is a directory"
+else
+  echo " This is not a directory"

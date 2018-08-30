@@ -1,0 +1,30 @@
+$ set | more
+lists both the env variables and shell settings(including the settings)
+
+$ env | more
+lists only the env variables
+
+$ shopt ( shell options - we can on/off different settings in this cmd's output)
+$ set | grep SHELLOPTS
+SHELLOPTS=<enabled options>
+$ ls -la > /tmp/test.txt
+$ ls -la /etc > /tmp/test.txt
+$ set -o noclobber ( to turn on noclobber)
+$ ls -la /var > /tmp/test.txt
+$ set +o noclobber (to turn off noclobber)
+$ ls -la /var > /tmp/test.txt
+
+PATH - contains paths to executable files
+we can also include path to script and run it just using thefilename of the scrpt
+
+$ cd ~
+$ cat .bash_history
+$ echo $HISTFILE
+/home/user/.bash_history
+$ echo $HISTCONTROL
+ignoredups - this gonna ignore duplicates
+$ export HISTCONTROL=ignorespace
+$ echo $HISTCONTROL
+$  ls -la
+$ cat .bash_history
+$ echo $HISTFILESIZE
