@@ -1,0 +1,18 @@
+MySQL> SHOW DATABASES;
+> USE dbSample;
+> SHOW TABLES;
+> SHOW tblCustomerInfo;
+> SELECT * FROM tblCustomerInfo;
+> SELECT * FROM tblOrderInfo;
+> SELECT customerName, customerAge FROM tblCustomerInfo;
+> SELECT customerName, customerAge FROM tblCustomerInfo WHERE customerAge>=21;
+> SELECT customerAge FROM tblCustomerInfo WHERE customerName="John Cena";
+Change the view order using ORDER BY
+> SELECT customerName,customerAge FROM tblCustomerInfo ORDER BY customerAge;
+> SELECT customerName,customerAge FROM tblCustomerInfo ORDER BY customerAge DESC;
+> SELECT customerName, customerAge FROM tblCustomerInfo WHERE customerAge IN (18,21,25);
+> SELECT customerName, customerAge FROM tblCustomerInfo WHERE customerAge BETWEEN 18 AND 35;
+> SELECT * FROM tblCustomerInfo WHERE customerAge > 18 AND customerAge < 35;
+> SELECT * FROM tblCustomerInfo WHERE customerAge > 18 OR customerAge < 25;
+> SELECT * FROM tblCustomerInfo LIMIT 2;
+> SELECT * FROM tblCustomerInfo LIMIT 2 DESC/ASC;

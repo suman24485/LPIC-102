@@ -1,0 +1,9 @@
+> SELECT * FROM tblCustomerInfo;
+> INSERT INTO tblCustomerInfo (customerNumber,customerName,customerAge) VALUES (111, 'Bruce Wayne', 40);
+> SELECT * tblCustomerInfo;
+> INSERT INTO tblCustomerInfo (customerNumber,customerName,customerAge) VALUES ((112, 'Clark Kent', 40),(113,'Wally West',23));
+> INSERT INTO tblCustomerInfo (customerNumber,customerName,customerAge) VALUES (112, 'Clark Kent', 40),(113,'Wally West',23);
+> SELECT * tblCustomerInfo;
+> UPDATE tblCustomerInfo SET customerAge=41 WHERE customerName = 'Bruce Wayne';
+> SELECT * tblCustomerInfo;
+> DELETE FROM tblCustomerInfo WHERE customerName='Wally West';

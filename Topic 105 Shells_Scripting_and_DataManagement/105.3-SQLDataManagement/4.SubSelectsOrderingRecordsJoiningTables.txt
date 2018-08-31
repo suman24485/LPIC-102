@@ -1,0 +1,19 @@
+> SELECT * FROM tblCustomerInfo;
+> SELECT * FROM tblOrderInfo;
+customerNumber is the only common field between tables
+> SELECT * FROM tblCustomerInfo JOIN tblOrderInfo ON tblOrderInfo.customerNumber=tblCustomerInfo.customerNumber;
+> SELECT tblCustomerInfo.customerNumber, tblCustomerInfo.customerName, tblOrderInfo.orderNumber, tblOrderInfo.itemDescription, tbldOrderInfo.itemPrice
+    FROM tblCustomerInfo JOIN tblOrderInfo ON tblCustomerInfo.customerNumber=tblOrderInfo.customerNumber;
+
+Subselection
+> SELECT customerNumber, customerName FROM tblCustomerInfo, customerAge WHERE customerAge IN (SELECT customerAge FROM tblCustomerInfo WHERE customerAge > 25);
+
+COUNT
+> SELECT COUNT(customerNumber) FROM tblCustomerInfo;
+> SELECT COUNT(customerNumber) FROM tblCustomerInfo WHERE customerAge > 25;
+> SELECT AVG(customerAge) FROM tblCustomerInfo;
+> SELECT AVG(itemPrice) FROM tblOrderInfo;
+> SELECT MAX(customerAge) FROM tblCustomerInfo;
+> SELECT MIN(customerAge) FROM tblCustomerInfo;
+> SELECT SUM(customerAge) FROM tblCustomerInfo;
+> SELECT * FROM tblCustomerInfo WHERE customerAge IN (SELECT MAX(customerAge) FROM tblCustomerInfo);
