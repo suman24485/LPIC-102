@@ -1,0 +1,38 @@
+X Server
+X org completely compatible with X11
+Window manager - on which the desktop runs
+adds the components to the
+
+Installations
+XWindows
+
+On CentOS/Redhat
+# yum groupinstall "X Window System" "Desktop" "Desktop Platform"
+# cd /etc/X11
+# ls -l
+cnfiguring Xserver
+# X-configure or Xorg-configure
+xorg.conf file
+
+On another server where we have access to video device
+# xorg -configure
+the above command will create xorg.conf.new under the user's directory
+# vi /root/xorg.conf.new
+Section "ServerLayout"
+EndSection
+Section "Files"
+EndSection
+Section "Module"
+EndSection
+Section "Keyboard0"
+EndSection
+Section "Mouse0"
+EndSection
+Section "Monitor0"
+EndSection
+Section "Device"
+EndSection
+# service xfs status
+
+On Ubuntu/Debian
+# apt-get xserver-xorg-core install

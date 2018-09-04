@@ -1,0 +1,23 @@
+Display Manager
+  Examples:
+      - XDM - /usr/bin - default in xorg installation
+      - KDM - /etc/kde
+      - GNOME/GDM - /etc/gdp
+      - LightDM
+      # systemctl status lightdm
+      # systemctl stop lightdm
+      # cd /etc/lightdm
+      # ll
+      # cd /usr/share/doc/lightdm
+      sample configuration file
+      # vi lightdm.conf
+
+On Centos 5
+# cd /etc/X11
+# ll
+# echo $DISPLAYMANAGER
+# vi prefdm
+# export DISPLAYMANAGER=
+
+On ubuntu
+# dpkg -reconfigure lightdm

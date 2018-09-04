@@ -1,0 +1,14 @@
+$ xwininfo
+-geometry indicates the resolution of the screen
+
+$ xdpyinfo | less
+Exam is concentrated on first two pages
+
+$ xhost
+remotely connect to a system
+$ echo $DISPLAY
+:0
+$ xhost
+$ xhost -
+$ xhost +
+$ xhost +<IPaddress>
