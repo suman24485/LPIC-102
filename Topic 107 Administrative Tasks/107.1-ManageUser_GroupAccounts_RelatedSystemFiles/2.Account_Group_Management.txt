@@ -1,0 +1,72 @@
+useradd command
+
+# man useradd
+# vi /etc/login.defs
+check all the values
+MIN
+MAX
+CREATE_HOME
+
+# cd /etc/skel
+# ls
+files that will be copied to the home dir for the newly created user
+# touch .welcome
+# ls -la
+# useradd <username> -m -k /etc/skel -u 1010 -g 1010 -G 100 -s /bin/bash
+-m - create home directory
+-M - dont create home directory
+-u - UID
+-g - primiary GID
+-G - Secondary GId
+-s - login shell
+# cat /etc/passwd | grep newuser
+check the output in sync with the options
+# cat / etc/group | grep user
+# cd /home/newuser
+# ls -al
+# useradd mynewuser
+and check the above places again
+# cd /etc/default
+# cat useradd
+contains the default settings for useradd
+
+groupadd command
+# man groupadd
+# groupadd mynewgroup -g 1099
+# cat /etc/group
+
+usermod command
+# man usermod
+# usermod -G mynewgroup nynewuser
+# cat /etc/group | grep mynewgroup
+Adding description to a user
+# usermod -c "My New User" mynewuser
+# cat /etc/passwd | grep mynewuser
+# usermod -L mynewuser ( lock the account from login )
+# cat /etc/passwd | grep mynewuser
+$ su mynewuser
+# usermod -U mynewuser(unlock the account)
+
+passwd command
+# passwd <username>
+
+groupmod command
+# man groupmod
+# groupmod -g 1012 testuser
+# cat /etc/group | grep testuser
+
+# mkdir /tmpdata
+# cd /tmpdata
+# cp /etc/skel/* /tmpdata/.
+# cp /etc/login.defs /tmpdata/.
+# chown mynewuser:mynewuser /tmpdata -R
+# userdel -r mynewuser (all the contents related to mynewuser but not the other files that are owned on the filesystem - here it is /tmpdata)
+# ls -lrt /tmpdata
+# cd /tmpdata
+# chown root:root /tmpdata -R
+
+chage cmd - changes aging parameters of the accounts
+# man chage
+# cat /etc/shadow | grep user
+# chage testuser -m 10 -M 100 -W 25
+# cat /etc/shadow | grep user
