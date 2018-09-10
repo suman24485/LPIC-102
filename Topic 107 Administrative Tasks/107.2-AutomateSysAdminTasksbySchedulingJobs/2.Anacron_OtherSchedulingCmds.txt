@@ -1,0 +1,21 @@
+anacron - simplified version of cron
+          time interval can be as low as possible
+Available in single file where the jobs of all the users are configured unlike crontab for each user
+# cat /etc/anacrontab
+
+#periodInDays   delayInMinutes    job-identifier  command
+
+# yum install at
+at application - batch processing utility
+# systemctl status atd
+# at <date/time>
+# at 12:35 AM today
+at> wall "Logoff Everyone"
+# atq
+# cd /var/spool/at
+# ls -l
+each job has an identifier
+# atrm <identifier> to remove the schuduled jobs
+
+# cat /etc/at.allow
+# cat /etc/at.deny

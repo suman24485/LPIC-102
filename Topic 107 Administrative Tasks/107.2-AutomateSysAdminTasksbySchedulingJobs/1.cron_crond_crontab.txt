@@ -1,0 +1,46 @@
+CRON
+primary job scheduler on Linux
+
+crond - cron daemon
+# systemctl status crond
+
+# crontab -l
+lists all the cron jobs configured by the current user
+# crontab -u user -l
+# crontab -e
+Minutes Hour DayofMonth Month DayofWeek                               CMD
+0-59    0-24  1-31       1-12   0-7(0 and 7 represent sunday)         <command to run>
+Examples:
+Cronjob thats runs every minute every day everyday month
+* * * * * env > /root/env.tmp
+
+# cd /etc/cron.d
+# ls -l
+# cat raid-check
+# cd ../cron.daily
+# ls -l
+# cat logrotate
+
+cron as normal user
+$ crontab -l
+$ crontab -e
+45 0,2,4,6,8  * 1,4,7,10 * cp /home/user/VNCHOWTO /home/VNCHOWTO.bkp
+   0-4  * 1-4(months range)
+   */2(every two hours) * */3(every three months)
+
+# cd /var/spool/cron
+# crontab -u user -l
+# ls -l
+# cat root
+# cat user
+# cat /etc/cron.allow
+# cat /etc/cron.deny
+order of precedence
+if cron.allow exists then only root can run the cronjobs
+if cron.deny exists then any user can run cronjobs(contains blacklist of users)
+# vi cron.deny
+<username>
+:wq!
+<username> will not be able to make any changes to the cronjobs
+# systemctl restart crond
+Jobs that are already scheduled that will continue to run even for denied user
