@@ -1,0 +1,18 @@
+Jan 1st 1970
+# date
+# date +"%d"
+# date +"%H"
+# date +"%m"
+# date +"%M"
+# date +"%Y"
+# date +"%z"
+# date +"%H:%M=%m%d%Y-%z"
+# cd /usr/share/zoneinfo
+# ls -la
+lists the timezones that are installed
+# cd /etc/
+# ls -la localtime
+# timedatectl
+# timedatectl list-timezones
+# timedatectl set-timezone America/Chicago
+# ls -al /etc/localtimes

@@ -1,0 +1,39 @@
+E-Mail Overview
+
+Mail Servers
+  Sendmail - security issues and difficult to configure using M4 language
+  Postfix - largely replaced Sendmail
+  Qmail - secure replacement for Sendmail
+  Exim - better security
+
+SMTP - Simple Mail Transfer Protocol
+MUA - Mail User Agent
+MSA - Mail Submission Agent
+MTA - Mail Transfer Agent
+MDA - Mail Delivery Agent
+
+POP - Post Office Protocol
+IMAP - Internet Message Access Protocol
+MX Record
+
+Creating Aliases
+# yum install sendmail
+# systemctl start sendmail
+# mailq
+# yum install mailx
+# mail (to check the emails)
+# mail -u user
+# mail user
+# vi /etc/aliases
+# newaliases (cmd to activate any changes to the aliases file)
+# ls -lrt aliases.db
+# mailq
+# cd /var/spool
+# ls -l mqueue
+# cd /var/log
+# vi maillog
+
+$ cd /home/user
+$ vi .forward
+newuser
+:wq!

@@ -1,0 +1,18 @@
+# cd
+# env | grep LANG
+# locale -a
+# locale -a | wc -l
+789
+# env | grep LANG
+
+Character Standards
+ASCII American Standard Code for Information Interchange
+Encoded in 7 bits 127 possibles
+These chars ran out
+
+ISO-8859-1
+
+Unicode - every character is defined as a number known as codepoint
+UTF-8
+UTF-16
+iconv -c -f ASCII -t MACCYRILLIC VNCHOWTO

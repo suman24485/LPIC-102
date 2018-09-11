@@ -1,0 +1,35 @@
+Hardware Clock, System Clock and NTP
+# date +"%H"
+displays the hour
+# date +"%s"
+remove the "+" to set the new format
+# date MMDDhhmm[CCYY.ss]
+
+drift - difference between the h/w clock and system clock
+hwclock - utility to deal with hw clock
+# hwclock
+# date - time shown through this command is system clock
+# hwclock --systohc => to sync both hw and system clock\
+
+# cd /etc/adjtime
+# cat adjtime
+
+Relation b/w hw and sys there is utility NTP
+# yum install ntp
+installs both server and client utilities
+# systemctl status ntpd
+# systemctl start ntpd
+ntp synchornizes with
+0.pool.ntp.org to 3.pool.ntp.org
+# vi /etc/ntpp.conf
+check public servers pool.ntp.org
+# ntpq
+gives special prompt
+ntpq> peers
+stop ntp and check peers
+restart and cnnect to ntp
+ntpq> peers
+ntpq> associations
+
+manipulate system clock
+hw clock not aware of timezone whereas system clock does

@@ -1,0 +1,29 @@
+syslog - log system msgs
+syslog daemon - syslogd
+syslog not used in modern distros
+loglevels
+rsyslog,sylogng
+
+# vi /etc/syslog.conf
+contains info abt the locations of specific logs
+# cd /var/log
+# ls -la messages
+# cat messages | wc -l
+# tail -n 20 messages
+# logger
+<message> Ctrl+D
+# tail messages
+# logger -i
+This is another essage to the logger [Ctrl+D]
+# cd /var/log
+# journalctl
+# journalctl -o verbose
+# journalctl -u <servicename>
+# systemctl stop ntpd
+# systemctl start ntpd
+# journalctl -xe
+# vi /etc/journald.conf
+# cd /etc/logrotate.d/
+# cat yum
+# ls -la
+# vi /etc/logrotate.conf

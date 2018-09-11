@@ -1,0 +1,58 @@
+CUPS,lpr and Printing at the CLI
+
+Legacy printing - lpd, ipp(internet printing protocol)
+lpd replaced by CUPS
+
+CUPS
+# yum install cups cups-lpd
+# systemctl start cups
+# cd /etc/
+# cd cups
+# ls -la
+# vi cupsd.conf
+check Listen localhost:631
+Restrict access to the server section
+:wq!
+# cd ppd (printer drivers)
+
+install a printer
+# yum install cups-pdf
+# elinks localhost:631
+open the above link in a browser and check the console
+Administrator -> Add Printer
+
+lp commands - line print daemon
+# lpstat
+# lpstat -p
+# lpstat -d
+# lpstat -a
+# lpstat -r
+# lpstat -s
+setting a default printer
+# lpoptions
+# lpoptions -d Cups-PDF
+# lpstat -d
+# lpoptions -l
+Adding a printer at the command line
+# lpadmin -p MyTestPrinter -E -v /dev/null -m raw
+# lpstat -a
+# cat VNCHOWTO | lp
+a pdf file will be created
+# man lpr
+# lpq
+# cupsctl
+# lpstat -d
+# cupsreject Cups-PDF
+# lpstat -a
+# lpoptions -d MyTestPrinter
+# lpstat -a
+# cupsaccept Cups-PDF
+# cupsdisable Cups-PDF
+# lpstat -a
+# echo "Hello to MrQ " | lp
+# lpq
+# cupsenable Cups-PDF
+# lpq
+# lprm <print job number>
+# cd /var/spool
+# cd cups
