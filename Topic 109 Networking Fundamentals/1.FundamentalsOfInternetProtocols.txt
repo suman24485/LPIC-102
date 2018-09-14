@@ -1,0 +1,56 @@
+IP ( Internet Protocol)
+Method of uniquely identifying an Address(destination) for a specific system
+Two primary versions:
+
+IPv4 - stndard address structure of four octets containing numbers between 0-255 for each
+       Ex: 192.168.72.211
+IPv6 - intended as replacement fr IPv4 consists of 128bit hexadecimal number for addressing
+       2DAF:FF40:DD45:4444:00DD:0988:11EA:98AB
+
+TCP ( Transmission Control Protocol)
+The method by which all transactions b/w IP addresses of any version are communicated.
+Defines a system of transmissions and acknowledgement to verify traffic arrives and can be assembed in correct order.
+
+UDP ( User Datagram Protocol)
+Often considered 'complementary' to IP, but is a stateless connection.
+No error checking or retransmission of packets takes place, even if the transmission of the packet failed.
+
+ICMP(Internet Control Message Protocol)
+Designed for netwokring devices to send error messages
+It can perform queries around network serivce availability(eg : ping)
+It is turnedoff due security vulnerabilities (ex : denial attacks)
+
+IP Class Ranges
+Five ranges are specified in RFC 1918
+The  values in each determine the total number of hosts that are available in each class
+Class A: 1 - 126 - this leaves 16,777,214 host addresses available
+Class B: 128 - 191 - this leaves 65534 hosts available(3rd and 4th octets are available)
+Class C: 192 - 223 - this leaves 254 hosts available(4th and final octet is available)
+Class D: 224-239 - multicast and not used for host addresses
+Class E: 240-254 - reserved for future use
+
+Network Mask
+Defines a logical network(called a subnet) that indicates the start and ending of a range of addresses
+
+Ranges
+Each Class Range has an associated network/subnet mask.
+the bit number (designated by /) is called  the CIDR(Classless Inter-Domain Routing notation)
+
+Class A : 255.0.0.0(or /8)
+Class B : 255.255.0.0(or /16)
+Class C : 255.255.255.0(or /24)
+
+Gateway
+Destination where n/w traffic goes that has no other matching route or is not intended for the local system network itself
+
+Broadcast Address
+Every network has one,operating on the address number 255
+Ex: 192.168.1.0/24 network
+- 192.168.1.255 is the broadcast address
+This is how an IP network sends traffic that can be seen by all hosts on a particular network
+
+Common ports/services
+20/21-ftp,22-ssh,23-telnet,25-smtp
+53-dns,80-http,110-pop3,123-ntp,139-netbios
+143-imap,161/162-snmp,389-ldap,443-https,465-smtps,514-syslog
+636-ldaps,993-imaps,995pop3s

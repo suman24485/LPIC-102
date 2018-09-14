@@ -1,0 +1,81 @@
+Working with interfaces and Routes
+
+ifconfig - all active/inactive interfaces
+
+eth0 - Ethernet
+      Link encap:HWaddr <MAC Address>(virtual systems might have duplicate mac addresses)
+      inet addr: <IPv4Address> Bcast: <address> Mask:<subnet Mask addr>
+      inet6 addr:<IPV6 Address>
+      UP BROADCAST RUNNING MULTICAST MTU:
+      RX PACKETs:
+      TX PACKETs:
+      collisions
+      RX Bytes:
+      Interrupt:
+
+lo - Local Loopback
+
+# ifconfig -a (to list all interfaces both active and inactive)
+# ifdown eth0 (disabling eth0)
+# ifdown lo
+# ifconfig
+# ifup lo
+
+ip cmd
+# ip addr show
+1: lo:
+
+2: eth0:
+
+# cd /etc/sysconfig
+# cd network-scripts
+# ls -a
+# ls -la ifcfg-*
+# vi ifcfg-eth0
+DEVICE=eth0
+BOOTROTO=dhcp
+ONBOOT=on
+
+DEVICE=eth0
+ONBOOT=on
+BOOTPROTO=static
+IPADDR
+
+:wq!
+to activate the above changes
+# service network restart
+
+default gateway - destination where all traffic goes
+# route
+route table
+# ping <default gateway address>
+# netstat -r
+# ip route show
+# netstat -rn
+# ping 8.8.8.8
+# ping 4.4.4.4
+# route add 8.8.8.8 gw 172.31.26.111
+# route
+# netstat -rn
+# ping 8.8.8.8
+# route del 8.8.8.8 gw 172.31.26.111
+# route add 8.8.8.8 gw 172.31.16.1(adding to default gateway)
+# route
+# ping 8.8.8.8
+# route del 8.8.8.8 gw 172.31.16.1
+
+# cd /proc/sys/net/ipv4
+# cat ip_forward
+0
+# echo 1 > ip_forward
+# cd /etc/
+# vi sysctl.conf
+net.ipv4.ip_forward=0 (change the value to 1)
+:wq!
+# reboot
+# which dhcpd
+# dhcpd -k
+# which pump
+# pump
+# which dhclient
+# 

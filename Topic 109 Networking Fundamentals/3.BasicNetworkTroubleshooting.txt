@@ -1,0 +1,28 @@
+ping
+uses "icmp" inorder to make querires for availability of the interface
+# ping linuxacademy.com
+# ping google.com
+# ping -c 5 google.com
+# ping -c 5 -i 2 google.com (5pings in space of 2seconds)
+
+trace route
+# traceroute google.com
+# tracepath google.com
+
+netstat
+# netstat -a
+all sockets on all active interfaces
+# netstat -a | grep CONNECTED | wc -l
+# netstat -a | grep tcp | wc -l
+# netstat -c 5 -a >
+# netstat -a -p | more
+# netstat -t (shows tcp stats)
+# netstat -r (routing table)
+
+ipv6 equivalents of the above utilities
+# ping6
+# ping -6 google.com
+# ping6 google.com
+
+# tracepath6
+# traceroute6

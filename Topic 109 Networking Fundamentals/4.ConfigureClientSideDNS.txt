@@ -1,0 +1,26 @@
+DNS - Domain name service
+# ping www.google.com
+# vi /etc/hosts
+8.8.8.8 www.google.com
+:wq!
+# ping www.google.com
+
+# vi /etc/resolve.conf
+search mylabserver.com
+nameserver 172.31.0.2
+
+# vi /etc/nsswitch.conf
+hosts section
+#hosts:    files   dns   myhostname
+add the below line
+hosts:  dns files
+:wq!
+# ping www.google.com
+
+# yum install bind-util(berkley internet naming domain)
+# host www.linuxacademy.com
+# getent hosts www.linuxacademy.com
+
+# dig www.linuxacademy.com
+# dig www.linuxacademy.com NS (Name server record)
+# dig www.linuxacademy.com MX (Mail record)
