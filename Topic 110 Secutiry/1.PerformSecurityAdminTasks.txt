@@ -1,0 +1,30 @@
+su - super user
+su without dash all of the login shells will not inherit as u become that user
+su with dash
+
+sudo - super user do
+$ su -
+# who
+# exit
+$ sudo su -
+# who
+
+$ cat /etc/sudoers
+# visudo to edit /etc/sudoers file(no need to mention /etc/sudoers just visudo)
+
+root    ALL=(ALL)   ALL
+user    ALL=(ALL)   ALL
+
+# cat /etc/group | grep wheel
+# cat /etc/sudoers | grep wheel
+
+# find / -user root -perm 0755 -type f -exec ls -al {} \; | mail -s "root owned executable files" root
+# mail
+
+# passwd
+# chage - changing the age for the passwords
+# man fuser
+# lsof
+# yum install lsof
+# w
+# cat /etc/inittab

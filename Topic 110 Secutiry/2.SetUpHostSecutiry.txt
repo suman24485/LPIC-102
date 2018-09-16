@@ -1,0 +1,47 @@
+Service Management
+/etc/inetd.conf
+
+in-demand services
+
+legacy
+inetd
+xinetd
+
+# yum install xinetd telnet telnet-server
+# cat /etc/xinetd.conf
+cps = 50 10
+first number is the limit to the no.of connections that can be made to xinet
+
+# cd /etc/xinetd.d
+# ls -al
+# vi inetd.conf
+in.telnetd stream tcp nowait root /usr/sbin/in.telnetd in.telnetd
+in.<Servicename> <sockettype> <protocol> <wait/nowait> <user> <path to daemon>
+:wq!
+# cd /etc/xinetd.d
+each individual service has a configuration file
+# vi telnet
+service telnet
+{
+    flags=
+    socket_type=
+    wait=
+    user=
+    server=
+    log_on_failure=
+    disable=
+}
+#  chkconfig in.telnetd on
+# vi telnet
+change disable from yes to no
+# chkconfig in.telnetd on
+# service xinetd status
+
+TCP Wrappers
+# cd /etc
+check if we have hosts.allow and hosts.deny
+# vi hosts.allow
+# vi hosts.deny
+
+Order of precedence
+hosts.allow is read first

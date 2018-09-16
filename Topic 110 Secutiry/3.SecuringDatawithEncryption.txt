@@ -1,0 +1,47 @@
+Using GnuPG to Encrypt and Decrypt files
+GPG v1 v2
+keys that are responsible for encryption are seeds
+Entropy is built on system
+# yum install rng-tools
+random number generating tools
+# rngd -r /dev/urandom
+generating entropy
+
+$ gpg --gen-key
+take defaults
+$ cd .gnupg/
+$ ls -l
+$ gpg -a -o userpubkey --export <keyreference>
+$ ls -la
+
+repeat the above steps for another user on the same machine
+
+$ gpg -a -o newuserpubkey --export <keyrefernce>
+
+# cp /home/user/.gnupg/userpubkey /home/newuser/userpubkey
+# chown newuser:newuser /home/newuser/userpubkey
+# cp /home/newuser/.gnupg/newuserpubkey /home/user/newuserpubkey
+# chown user:user /home/user/newuserpubkey
+
+$ gpg --import newuserpubkey
+
+$ gpg --list-keys
+$ gpg -e <filename>(encrypting a file)
+
+SSH Keys for Public and Private - For secure connections
+SSH - secure shell
+logging securely to remote machines
+# cd /etc/ssh
+# ls -la
+rsa and dsa keys
+# vi sshd.config
+
+known_hosts
+
+to skip inputting the passphrase(input once and )
+$ ssh-agent bash
+$ ssh-add
+
+Tunnelling
+$ ssh -X <user>@<server>
+$ xeyes
